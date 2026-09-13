@@ -4,7 +4,7 @@ import { useAuthStore } from '@/src/hooks/AuthContext';
 import { useEffect } from 'react';
 import { ActivityIndicator, View, AppState, Platform } from 'react-native';
 import { focusManager, QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
+import '../global.css'
 AppState.addEventListener('change', (status)=> {
   if(Platform.OS !== 'web'){
     focusManager.setFocused(status === 'active')
