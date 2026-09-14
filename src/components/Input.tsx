@@ -1,25 +1,48 @@
 import { forwardRef } from 'react';
-import { TextInput, TextInputProps, View, Text } from 'react-native';
-
+import { TextInput, TextInputProps, View, Text, Pressable } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 type InputProps = TextInputProps & {
   label: string;
   error?: string;
+  leftIcon?: keyof typeof Ionicons.glyphMap
+  rightIcon?: keyof typeof Ionicons.glyphMap
+  onRightIconPressed?: () => void
 };
 
 export const Input = forwardRef<TextInput, InputProps>(
-  ({ label, error, ...textInputProps }, ref) => {
+  ({leftIcon, rightIcon, label, error, onRightIconPressed,...textInputProps }, ref) => {
     return (
       <View className="w-full mb-md">
         <Text className="text-text-light dark:text-text-dark md-xs">
           {label}
         </Text>
+          <View className={`flex-row items-center   py-2 `}>
+        {leftIcon && (
+          <Ionicons
+          name={leftIcon}
+          size={20}
+          color='#fff'
+          className='mr-8 absolute'
+          />
+        )}
         <TextInput
           ref={ref}
           accessibilityLabel={label}
-          className={`border rounded p-sm text-text-light dark:text-text-dark ${error ? 'border-danger' : 'border-secondary'}`}
+          className={`flex-1 relative border-b p-sm px-lg text-text-light dark:text-text-dark ${error ? 'border-danger' : 'border-secondary'}`}
           {...textInputProps}
         />
+        {rightIcon && (
+          <Pressable onPress={onRightIconPressed} className='right-2 absolute'>
+          <Ionicons
+          name={rightIcon}
+          size={20}
+          color='#fff'
+         
+          />
+          </Pressable>
+        )}
         {error && <Text className="text-danger text-body mt-xs">{error}</Text>}
+        </View>
       </View>
     );
   }
