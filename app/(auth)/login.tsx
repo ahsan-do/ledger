@@ -9,7 +9,7 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
-  Pressable,
+ 
   Text,
   TouchableWithoutFeedback,
   View,
@@ -45,14 +45,14 @@ const Login = () => {
               <Input
                 label="Email"
                 cursorColor="black"
-                leftIcon="mail-outline"
+                leftIcon="mail"
               />
               <Input
                 label="Password"
                 cursorColor="black"
                 secureTextEntry={hide}
-                leftIcon="lock-closed-outline"
-                rightIcon={hide ? 'eye-off-outline' : 'eye-outline'}
+                leftIcon="lock"
+                rightIcon={hide ? 'eye-closed' : 'eye'}
                 onRightIconPressed={() => setHide((prev) => !prev)}
               />
               <Button label="Login" onPress={handleLogin} />

@@ -27,7 +27,7 @@ const Home = () => {
             Good Morning!
           </Text>
           <Text className="text-text-light dark:text-text-dark text-body font-extralight">
-            Ahsan
+            Muhammad Ahsan
           </Text>
         </View>
         </View>

@@ -1,11 +1,11 @@
 import { forwardRef } from 'react';
 import { TextInput, TextInputProps, View, Text, Pressable } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
 type InputProps = TextInputProps & {
   label: string;
   error?: string;
-  leftIcon?: keyof typeof Ionicons.glyphMap
-  rightIcon?: keyof typeof Ionicons.glyphMap
+  leftIcon?: keyof typeof Octicons.glyphMap
+  rightIcon?: keyof typeof Octicons.glyphMap
   onRightIconPressed?: () => void
 };
 
@@ -18,7 +18,7 @@ export const Input = forwardRef<TextInput, InputProps>(
         </Text>
           <View className={`flex-row items-center   py-2 `}>
         {leftIcon && (
-          <Ionicons
+          <Octicons
           name={leftIcon}
           size={20}
           color='#fff'
@@ -33,7 +33,7 @@ export const Input = forwardRef<TextInput, InputProps>(
         />
         {rightIcon && (
           <Pressable onPress={onRightIconPressed} className='right-2 absolute'>
-          <Ionicons
+          <Octicons
           name={rightIcon}
           size={20}
           color='#fff'
