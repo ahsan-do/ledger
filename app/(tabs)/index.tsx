@@ -23,10 +23,10 @@ const Home = () => {
           <Avatar initials="AN" size={48} />
         </View>
         <View>
-          <Text className="text-text-light dark:text-text-dark text-title font-bold">
+          <Text className="text-text-dark dark:text-text-dark text-title font-bold">
             Good Morning!
           </Text>
-          <Text className="text-text-light dark:text-text-dark text-body font-extralight">
+          <Text className="text-text-dark dark:text-text-dark text-body font-extralight">
             Muhammad Ahsan
           </Text>
         </View>

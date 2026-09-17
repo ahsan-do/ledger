@@ -9,7 +9,6 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
- 
   Text,
   TouchableWithoutFeedback,
   View,
@@ -33,7 +32,7 @@ const Login = () => {
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <LinearGradient
-          colors={[ '#012F84','#090E1A']}
+          colors={['#012F84', '#090E1A']}
           className="flex-1 justify-center px-6"
         >
           <View className="p-6 bg-white/10 dark:bg-black/10 rounded-2xl backdrop-blur-md">
@@ -42,11 +41,7 @@ const Login = () => {
             </View>
 
             <View className="gap-y-4">
-              <Input
-                label="Email"
-                cursorColor="black"
-                leftIcon="mail"
-              />
+              <Input label="Email" cursorColor="black" leftIcon="mail" />
               <Input
                 label="Password"
                 cursorColor="black"
@@ -56,9 +51,13 @@ const Login = () => {
                 onRightIconPressed={() => setHide((prev) => !prev)}
               />
               <Button label="Login" onPress={handleLogin} />
-              <View className='flex-row gap-2 justify-center'>
-              <Text className='text-body font-normal text-white'>Don't have an account?</Text>
-              <Text className='text-body font-bold text-white'><Link href='/register'>Sign Up</Link></Text>
+              <View className="flex-row gap-2 justify-center">
+                <Text className="text-body font-normal text-white">
+                  Don't have an account?
+                </Text>
+                <Text className="text-body font-bold text-white">
+                  <Link href="/register">Sign Up</Link>
+                </Text>
               </View>
             </View>
           </View>

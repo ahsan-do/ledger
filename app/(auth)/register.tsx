@@ -45,6 +45,7 @@ const register = () => {
                     leftIcon="lock"
                     rightIcon={hide ? 'eye-closed' : 'eye'}
                     onRightIconPressed={() => setHide((prev) => !prev)}
+                    
                   />
                   <Button label="Register" onPress={handleLogin} />
                   <View className="flex-row gap-2 justify-center">
