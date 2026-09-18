@@ -5,7 +5,7 @@ import {
   PressableProps,
 } from 'react-native';
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost';
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
 
 type ButtonProps = PressableProps & {
   label: string;
@@ -16,11 +16,13 @@ const variantStyles: Record<ButtonVariant, string> = {
   primary: 'bg-primary',
   secondary: 'bg-secondary',
   ghost: 'bg-transparent border border-primary',
+  danger: 'bg-danger',
 };
 const variantTextStyles: Record<ButtonVariant, string> = {
   primary: 'text-white',
   secondary: 'text-white',
   ghost: 'text-primary',
+  danger: 'text-white',
 };
 
 export function Button({

@@ -5,6 +5,7 @@ import { useColorScheme } from 'nativewind';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Avatar } from '@/src/components/Avatar';
 import { Octicons } from '@expo/vector-icons';
+import { Badge } from '@/src/components/Badge';
 
 const Home = () => {
   const { colorScheme, setColorScheme } = useColorScheme();
@@ -26,9 +27,12 @@ const Home = () => {
           <Text className="text-text-dark dark:text-text-dark text-title font-bold">
             Good Morning!
           </Text>
+          <View className="flex-row gap-2 items-center">
           <Text className="text-text-dark dark:text-text-dark text-body font-extralight">
             Muhammad Ahsan
           </Text>
+          <Badge label="Premium" variant="success"  />
+          </View>
         </View>
         </View>
         <View className=' bg-white/10 dark:bg-white/10 rounded-full p-4 backdrop-blur-md'>
