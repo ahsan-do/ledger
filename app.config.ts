@@ -11,6 +11,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   userInterfaceStyle: 'light',
   ios: {
     supportsTablet: true,
+    bundleIdentifier: 'com.ahsan1999.ledger',
   },
   android: {
     adaptiveIcon: {
@@ -25,7 +26,18 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   web: {
     favicon: './assets/favicon.png',
   },
-  plugins: ['expo-router', 'expo-status-bar', "expo-secure-store"],
+  plugins: [
+    'expo-router',
+    'expo-status-bar',
+    'expo-secure-store',
+    [
+      'expo-camera',
+      {
+        cameraPermission:
+          'Allow $(PRODUCT_NAME) to access your camera to scan receipts',
+      },
+    ],
+  ],
   extra: {
     apiUrl: process.env.API_URL ?? 'https://dev.api.ledger.app',
   },

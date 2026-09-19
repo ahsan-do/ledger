@@ -2,7 +2,8 @@ export type Transaction = {
     id:string,
     title:string,
     amount: number,
-    date: string
+    date: string,
+      receiptUri?: string;
 }
 
 const MOCK_TRANSACTIONS: Transaction[] = [

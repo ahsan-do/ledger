@@ -1,5 +1,6 @@
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
 import { addTransactions, deleteTransaction, fetchTransactions, Transaction, updateTransaction } from './api';
+import { checkBudgetThreshold } from '@/src/lib/notifications';
 
 export function useTransactions() {
   return useQuery({
@@ -37,6 +38,8 @@ export function useAddTransaction() {
     },
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ['transactions'] });
+
+  checkBudgetThreshold(95, 100);
     },
   });
 }

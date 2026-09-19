@@ -1,11 +1,5 @@
-import {
-  ActivityIndicator,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import React, { useState } from 'react';
+import { ActivityIndicator, Image, StyleSheet, Text, View } from 'react-native';
+
 import {
   useAddTransaction,
   useDeleteTransaction,
@@ -18,27 +12,23 @@ import { Button } from '@/src/components/Button';
 
 const Transactions = () => {
   const { data, isLoading, error } = useTransactions();
-  const { mutate } = useAddTransaction();
+
+  const { mutate, isPending } = useAddTransaction();
   const { mutate: deleteTx } = useDeleteTransaction();
   const { mutate: updateTx } = useUpdateTransaction();
-
-  const [ loading, setLoading] = useState(false);
 
   if (isLoading) return <ActivityIndicator />;
   if (error) return <Text>Something went wrong</Text>;
 
   const handleAddTransaction = () => {
-    
-    setLoading(true)
     mutate({ title: 'Test Expense', amount: -10, date: '2026-09-10' });
-    return setLoading(false)
   };
 
   const handleUpdate = (id: string) => {
     updateTx({
       id: id,
       title: 'Updated Title',
-      amount: -45.2,
+      amount: -100.0,
       date: '2026-09-08',
     });
   };
@@ -67,6 +57,12 @@ const Transactions = () => {
                   <Text className="text-white">{t.title}</Text>
                 </Card.Header>
                 <Card.Body>
+                  {t.receiptUri && (
+                    <Image
+                      source={{ uri: t.receiptUri }}
+                      className="w-16 h-16 rounded mt-xs"
+                    />
+                  )}
                   <Text className="text-white">{t.amount}</Text>
                 </Card.Body>
               </View>
@@ -87,7 +83,11 @@ const Transactions = () => {
           </View>
         ))}
         <View>
-          <Button label="Add Transaction" onPress={handleAddTransaction}  loading={loading}/>
+          <Button
+            label="Add Transaction"
+            onPress={handleAddTransaction}
+            loading={isPending}
+          />
         </View>
       </View>
     </LinearGradient>
